@@ -1,0 +1,10 @@
+Library/
+obj/
+.vs/
+
+Assembly-CSharp.csproj
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp-Editor-firstpass.csproj
+Assembly-CSharp-firstpass.csproj
+firstgame.sln
+Game.sln
