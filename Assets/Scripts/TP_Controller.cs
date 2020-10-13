@@ -10,7 +10,7 @@ public class TP_Controller : MonoBehaviour
     public Animator animator;
     #endregion
 
-    public float speed = 7.5f;
+    public float speed = 1.0f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
     public float lookSpeed = 2.0f;
@@ -33,8 +33,6 @@ public class TP_Controller : MonoBehaviour
     {
         if (characterController.isGrounded)
         {
-            if(canMove)
-                UpdateAnimator();
 
             // We are grounded, so recalculate move direction based on axes
             Vector3 forward = transform.TransformDirection(Vector3.forward);
@@ -56,18 +54,4 @@ public class TP_Controller : MonoBehaviour
 
     }
 
-    void UpdateAnimator()
-    {
-        if (Input.GetButtonDown("Fire1"))
-            animator.SetTrigger("PunchStraightLeft");
-        if (Input.GetButtonDown("Fire2"))
-            animator.SetTrigger("PunchStraightRight");
-
-    }
-
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.gameObject.name == "Opponent")
-            Debug.Log("yay");
-    }
 }

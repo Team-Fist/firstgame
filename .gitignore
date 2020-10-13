@@ -8,3 +8,6 @@ Assembly-CSharp-Editor-firstpass.csproj
 Assembly-CSharp-firstpass.csproj
 firstgame.sln
 Game.sln
+*.meta
+*.meta
+*.meta

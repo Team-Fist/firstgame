@@ -6,7 +6,7 @@ public class Hit_Attack : MonoBehaviour
 {
     public HealthBar healthBar;
 
-    public int damage = 20;
+    public int damage = 0;
 
     // Start is called before the first frame update
     void Start()
