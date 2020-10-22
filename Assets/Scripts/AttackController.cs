@@ -5,19 +5,82 @@ using UnityEngine;
 public class AttackController : MonoBehaviour
 {
     public Animator animator;
-    // Update is called once per frame
+    public MoveController moveController;
+    public bool canAttack = true;
+    public bool isPunching = false;
+    public bool isKicking = false;
+    public bool punchStraight = false;
+    public bool punchHook = false;
+    public bool punchUpper = false;
+    public bool kickMid = false;
+    public bool kickLow = false;
+    public bool kickHigh = false;
+
+    private void Start()
+    {
+        moveController = GetComponent<MoveController>();
+    }
+
     void Update()
     {
-        // punch straight left
+        // punch straight
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            animator.SetTrigger("PunchStraightLeft");
+            moveController.canMove = false;
+            if (canAttack)
+            {
+                if (!punchStraight)
+                {
+                    moveController.isMoving = false;
+                    animator.SetTrigger("PunchStraightLeft"); 
+                }
+                else if (punchStraight)
+                {
+                    moveController.isMoving = false;
+                    animator.SetTrigger("PunchStraightRight");
+                }
+            }
         }
 
-        // kick mid left
+        /*/ punch hook
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Input.GetKeyDown(KeyCode.W))
+        {
+            if (canAttack)
+            {
+                if (!punchStraight)
+                {
+                    moveController.isMoving = false;
+                    moveController.canMove = false;
+                    punchStraight = true;
+                    animator.SetTrigger("PunchHookLeft");
+                }
+                else if (punchStraight)
+                {
+                    moveController.isMoving = false;
+                    moveController.canMove = false;
+                    animator.SetTrigger("PunchHookRight");
+                }
+            }
+        }*/
+
+
+        // kick mid 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            animator.SetTrigger("KickMidLeft");
+            moveController.canMove = false;
+            if (canAttack)
+            {
+                if (!kickMid)
+                {
+                    moveController.isMoving = false;
+                    animator.SetTrigger("KickMidLeft");
+                }
+                else if (kickMid)
+                {
+                    moveController.isMoving = false;
+                    animator.SetTrigger("KickMidRight");
+                }
+            }
         }
     }
 }
