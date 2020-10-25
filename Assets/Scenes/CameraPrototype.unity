@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 128284707}
   - component: {fileID: 128284708}
   - component: {fileID: 128284709}
+  - component: {fileID: 128284710}
   m_Layer: 5
   m_Name: PlayerHealth
   m_TagString: Untagged
@@ -309,6 +310,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 128284708}
+--- !u!114 &128284710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128284706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9117801680c304a89a8fd79c18b979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 128284709}
 --- !u!1 &143193991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000010135152324, guid: fd79887f970ff394c92966c76af78a10, type: 3}
@@ -1196,6 +1210,7 @@ GameObject:
   - component: {fileID: 1191786198}
   - component: {fileID: 1191786197}
   - component: {fileID: 1191786196}
+  - component: {fileID: 1191786200}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1284,6 +1299,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1191786200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191786195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0c7d3cd230c6e4a8b54e19c47b82ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 128284710}
+  Opponent: {fileID: 1720977958}
 --- !u!1 &1276529796 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012752213096, guid: fd79887f970ff394c92966c76af78a10, type: 3}
@@ -1692,6 +1721,7 @@ GameObject:
   - component: {fileID: 1720977955}
   - component: {fileID: 1720977956}
   - component: {fileID: 1720977957}
+  - component: {fileID: 1720977958}
   m_Layer: 5
   m_Name: OpponentHealth
   m_TagString: OpponentHealth
@@ -1783,6 +1813,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1720977956}
+--- !u!114 &1720977958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720977954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d9117801680c304a89a8fd79c18b979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1720977957}
 --- !u!1 &1741949004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000012148399594, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
@@ -2210,6 +2253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed595ad07efd204bbf81622dad5f2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RoundInternals: {fileID: 1720977958}
   blueGuy: {fileID: 0}
   attackControllerBlue: {fileID: 0}
   animator: {fileID: 2051027976}
@@ -2221,18 +2265,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013228589232, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
   m_PrefabInstance: {fileID: 1582259055}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2075268356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075268355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e0c7d3cd230c6e4a8b54e19c47b82ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2075268358 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95000012732393394, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
