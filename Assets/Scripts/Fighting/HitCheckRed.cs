@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-using RoundStates = GL_RoundInternals.RoundInternalStates;
-
 public class HitCheckRed : MonoBehaviour
 {
     public GL_RoundInternals RoundInternals;
@@ -24,17 +22,24 @@ public class HitCheckRed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RoundInternals.CurrentState == RoundStates.KnockDown)
-        {
-            RoundInternals.KnockDown_to_GetUp();
-            animator.SetTrigger("Knockout");
-        }
-        if (RoundInternals.CurrentState == RoundStates.GetUp)
-        {
-            RoundInternals.GetUp_to_Regular();
-            animator.SetTrigger("GetUp");
-        }
+        KnockDown();
+    }
 
+    void KnockDown()
+    {
+        switch (RoundInternals.GetCurrentStateInt())
+        {
+            case 1:
+                RoundInternals.KnockDown_to_GetUp();
+                animator.SetTrigger("Knockout");
+                break;
+            case 2:
+                if(RoundInternals.GetUp_to_Regular())
+                    animator.SetTrigger("GetUp");
+                break;
+            default:
+                break;
+        }
     }
 
     void OnTriggerEnter(Collider col)
