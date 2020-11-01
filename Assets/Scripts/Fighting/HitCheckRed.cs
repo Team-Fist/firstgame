@@ -23,6 +23,10 @@ public class HitCheckRed : MonoBehaviour
     void Update()
     {
         KnockDown();
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Reaction1"))
+        {
+            Debug.Log("Reaction1");
+        }
     }
 
     void KnockDown()
