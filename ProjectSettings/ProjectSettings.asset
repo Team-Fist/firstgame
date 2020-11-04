@@ -652,13 +652,7 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
-    Analytics: 1
-    Build: 0
-    Collab: 1
-    Game Performance: 0
-    Purchasing: 0
     UNet: 1
-    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -671,10 +665,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 5ff4230f-e1c6-43c5-a39c-bbe74ba0b592
+  cloudProjectId: 
   framebufferDepthMemorylessMode: 0
-  projectName: GamePrototype
-  organizationId: unity_qoetjstckdfbug
+  projectName: 
+  organizationId: 
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
