@@ -16,9 +16,24 @@ public class PlayerInput : MonoBehaviour
             attackController.straightPunch();
         }
 
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            moveController.canMove = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             attackController.midKick();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            attackController.startBlock();
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            attackController.endBlock();
         }
     }
 }

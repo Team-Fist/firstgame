@@ -6,9 +6,11 @@ public class AttackController : MonoBehaviour
 {
     public Animator animator;
     public MoveController moveController;
+    public Facing facing;
     public bool canAttack = true;
     public bool isPunching = false;
     public bool isKicking = false;
+    public bool isBlocking = false;
     public bool punchStraight = false;
     public bool punchHook = false;
     public bool punchUpper = false;
@@ -17,6 +19,24 @@ public class AttackController : MonoBehaviour
     public bool kickHigh = false;
 
     private void Start(){}
+
+    public void startBlock()
+    {
+        if (canAttack && !isPunching && !isKicking)
+        {
+            animator.SetBool("Blocking", true);
+            isBlocking = true;
+        }
+    }
+
+    public void endBlock()
+    {
+        if (canAttack && !isPunching && !isKicking)
+        {
+            animator.SetBool("Blocking", false);
+            isBlocking = false;
+        }
+    }
 
     public void straightPunch()
     {
@@ -88,6 +108,19 @@ public class AttackController : MonoBehaviour
 
     void Update()
     {
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Block_Hold"))
+        {
+            moveController.canMove = false;
+        }
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Block_Release"))
+        {
+            moveController.canMove = false;
+        }
+        else
+        {
+            moveController.canMove = true;
+        }
+
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Straight_Left"))
         {
             isPunching = true;
@@ -98,6 +131,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Straight_Right"))
@@ -110,6 +144,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Hook_Left"))
@@ -122,6 +157,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Hook_Right"))
@@ -134,6 +170,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Upper_Left"))
@@ -146,6 +183,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Upper_Right"))
@@ -158,6 +196,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_Mid_Left"))
@@ -170,6 +209,7 @@ public class AttackController : MonoBehaviour
             kickMid = true;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_Mid_Right"))
@@ -182,6 +222,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = false;
             moveController.canMove = false;
         }
         else
@@ -194,6 +235,7 @@ public class AttackController : MonoBehaviour
             kickMid = false;
             kickLow = false;
             kickHigh = false;
+            facing.facing = true;
             moveController.canMove = true;
         }
     }
