@@ -58,23 +58,12 @@ public class MoveController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isMoving)
-        {
-            attackController.canAttack = false;
-        }
-        else if (!isMoving)
-        {
-            attackController.canAttack = true;
-        }
 
-        if (attackController.isKicking == true || attackController.isPunching == true)
+        if (attackController.isKicking == true || attackController.isPunching == true || attackController.isBlocking == true)
         {
             canMove = false;
         }
-        else
-        {
-            canMove = true;
-        }
+
 
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
@@ -82,6 +71,11 @@ public class MoveController : MonoBehaviour
             {
                 animator.SetBool("MoveForward", true);
                 isMoving = true;
+            }
+            else if (!canMove)
+            {
+                animator.SetBool("MoveForward", false);
+                isMoving = false;
             }
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
@@ -91,10 +85,20 @@ public class MoveController : MonoBehaviour
                 animator.SetBool("MoveForward", true);
                 isMoving = true;
             }
+            else if (!canMove)
+            {
+                animator.SetBool("MoveForward", false);
+                isMoving = false;
+            }
         }
         else if (Input.GetAxisRaw("Horizontal") == 0)
         {
             if (canMove)
+            {
+                animator.SetBool("MoveForward", false);
+                isMoving = false;
+            }
+            else if (!canMove)
             {
                 animator.SetBool("MoveForward", false);
                 isMoving = false;
@@ -108,6 +112,11 @@ public class MoveController : MonoBehaviour
                 animator.SetBool("MoveForward", true);
                 isMoving = true;
             }
+            else if (!canMove)
+            {
+                animator.SetBool("MoveBackward", false);
+                isMoving = false;
+            }
         }
         else if (Input.GetAxisRaw("Vertical") < 0)
         {
@@ -116,10 +125,20 @@ public class MoveController : MonoBehaviour
                 animator.SetBool("MoveBackward", true);
                 isMoving = true;
             }
+            else if (!canMove)
+            {
+                animator.SetBool("MoveBackward", false);
+                isMoving = false;
+            }
         }
         else if (Input.GetAxisRaw("Vertical") == 0)
         {
             if (canMove)
+            {
+                animator.SetBool("MoveBackward", false);
+                isMoving = false;
+            }
+            else if (!canMove)
             {
                 animator.SetBool("MoveBackward", false);
                 isMoving = false;

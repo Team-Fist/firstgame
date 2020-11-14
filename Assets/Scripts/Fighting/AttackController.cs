@@ -106,6 +106,40 @@ public class AttackController : MonoBehaviour
         }
     }
 
+    public void lowKick()
+    {
+        if (canAttack)
+        {
+            if (!kickLow)
+            {
+                moveController.isMoving = false;
+                animator.SetTrigger("KickLowLeft");
+            }
+            else if (kickLow)
+            {
+                moveController.isMoving = false;
+                animator.SetTrigger("KickLowRight");
+            }
+        }
+    }
+
+    public void highKick()
+    {
+        if (canAttack)
+        {
+            if (!kickHigh)
+            {
+                moveController.isMoving = false;
+                animator.SetTrigger("KickHighLeft");
+            }
+            else if (kickHigh)
+            {
+                moveController.isMoving = false;
+                animator.SetTrigger("KickHighRight");
+            }
+        }
+    }
+
     void Update()
     {
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Block_Hold"))
@@ -115,10 +149,6 @@ public class AttackController : MonoBehaviour
         else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Block_Release"))
         {
             moveController.canMove = false;
-        }
-        else
-        {
-            moveController.canMove = true;
         }
 
         if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Punch_Straight_Left"))
@@ -225,7 +255,59 @@ public class AttackController : MonoBehaviour
             facing.facing = false;
             moveController.canMove = false;
         }
-        else
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_Low_Left"))
+        {
+            isPunching = false;
+            isKicking = true;
+            punchStraight = false;
+            punchHook = false;
+            punchUpper = false;
+            kickMid = false;
+            kickLow = true;
+            kickHigh = false;
+            facing.facing = false;
+            moveController.canMove = false;
+        }
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_Low_Right"))
+        {
+            isPunching = false;
+            isKicking = true;
+            punchStraight = false;
+            punchHook = false;
+            punchUpper = false;
+            kickMid = false;
+            kickLow = false;
+            kickHigh = false;
+            facing.facing = false;
+            moveController.canMove = false;
+        }
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_High_Left"))
+        {
+            isPunching = false;
+            isKicking = true;
+            punchStraight = false;
+            punchHook = false;
+            punchUpper = false;
+            kickMid = false;
+            kickLow = false;
+            kickHigh = true;
+            facing.facing = false;
+            moveController.canMove = false;
+        }
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Kick_High_Right"))
+        {
+            isPunching = false;
+            isKicking = true;
+            punchStraight = false;
+            punchHook = false;
+            punchUpper = false;
+            kickMid = false;
+            kickLow = false;
+            kickHigh = false;
+            facing.facing = false;
+            moveController.canMove = false;
+        }
+        else if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
         {
             isPunching = false;
             isKicking = false;

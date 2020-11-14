@@ -1715,7 +1715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 143000011742214054, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
       propertyPath: m_Radius
-      value: 0.2
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 143000011742214054, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
       propertyPath: m_Center.y
@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Self: {fileID: 2051027975}
   Other: {fileID: 2075268355}
-  facing: 0
+  facing: 1
 --- !u!54 &2051027979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.8
-  m_Radius: 0.2
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
