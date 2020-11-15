@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AttackController : MonoBehaviour
 {
@@ -18,7 +16,9 @@ public class AttackController : MonoBehaviour
     public bool kickLow = false;
     public bool kickHigh = false;
 
-    private void Start(){}
+
+    private void Start(){
+    }
 
     public void startBlock()
     {
@@ -46,11 +46,13 @@ public class AttackController : MonoBehaviour
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("PunchStraightLeft");
+                animator.SetBool("BackToIdle", true);
             }
             else if (punchStraight)
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("PunchStraightRight");
+                animator.SetBool("BackToIdle", true);
             }
         }
     }
@@ -80,11 +82,13 @@ public class AttackController : MonoBehaviour
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("PunchUpperLeft");
+                animator.SetBool("BackToIdle", true);
             }
             else if (punchUpper)
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("PunchUpperRight");
+                animator.SetBool("BackToIdle", true);
             }
         }
     }
@@ -97,11 +101,13 @@ public class AttackController : MonoBehaviour
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("KickMidLeft");
+                animator.SetBool("BackToIdle", true);
             }
             else if (kickMid)
             {
                 moveController.isMoving = false;
                 animator.SetTrigger("KickMidRight");
+                animator.SetBool("BackToIdle", true);
             }
         }
     }

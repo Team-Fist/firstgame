@@ -2428,6 +2428,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2051027984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2051027975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb35e96fc2743de46b33e49dc58ddda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.8
+  animator: {fileID: 2051027976}
+  kickMid: 0
+  kickLow: 0
+  kickHigh: 0
+  punchStraight: 0
+  punchHook: 0
+  punchUpper: 0
+  _target: {fileID: 2075268359}
 --- !u!1 &2075268355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013228589232, guid: 3bf11e47adbdd4542a4be54c81dac563, type: 3}
@@ -2484,7 +2505,7 @@ MonoBehaviour:
   canJump: 1
   isJumping: 0
   thrust: 5
-  speed: 1
+  speed: 5
   jumpSpeed: 8
   gravity: 20
   lookSpeed: 2
