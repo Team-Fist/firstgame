@@ -82,6 +82,16 @@ public class GL_RoundInternals : MonoBehaviour
         return this.RoundWins == 2;
     }
 
+    public bool RecMatchWinner()
+    {
+        if (this.RoundWins == 2)
+        {
+            Score.hScore.AddScore();
+            return true;
+        }
+        return false;
+    }
+
     public void DeclareWinner()
     {
         this.WinnerDeclared = true;

@@ -14,6 +14,7 @@ public class GL_WinController : MonoBehaviour
     private byte RoundNumber = 1;
     private const float TimeInit = 60.0f;
     private float TimeNow = TimeInit;
+    private bool roundDeclerations = true;
     #endregion
 
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class GL_WinController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.Player.GetCurrentStateInt() != 0 || this.Opponent.GetCurrentStateInt() != 0)
+        if (this.roundDeclerations)
             return;
         if (this.Round_CheckLooser() || Time_CountDown())
             this.ShowText();
@@ -50,9 +51,18 @@ public class GL_WinController : MonoBehaviour
             return false;
 
     }
+    private bool Time_CountDown()
+    {
+        TimeNow -= Time.deltaTime;
+        TimerText.text = Mathf.Round(TimeNow).ToString();
+        if (TimeNow <= 0)
+            return true;
+        else
+            return false;
+    }
     private IEnumerator Round_DeclareWinner()
     {
-        this.RoundText.gameObject.SetActive(true);
+        this.RoundText.gameObject.SetActive(this.roundDeclerations = true);
 
         this.RoundText.text = Player.GetRoundWinsText() + " - " + Opponent.GetRoundWinsText();
         yield return new WaitForSeconds(2);
@@ -66,19 +76,9 @@ public class GL_WinController : MonoBehaviour
         this.RoundText.text = "Fight";
         yield return new WaitForSeconds(2);
 
-        this.RoundText.gameObject.SetActive(false);
+        this.RoundText.gameObject.SetActive(this.roundDeclerations = false);
     }
     #endregion
-
-    private bool Time_CountDown()
-    {
-        TimeNow -= Time.deltaTime;
-        TimerText.text = Mathf.Round(TimeNow).ToString();
-        if (TimeNow <= 0)
-            return true;
-        else
-            return false;
-    }
 
     private void ShowText()
     {
@@ -99,9 +99,9 @@ public class GL_WinController : MonoBehaviour
 
     private IEnumerator DeclareMatchEnd()
     {
-        this.RoundText.gameObject.SetActive(true);
+        this.RoundText.gameObject.SetActive(this.roundDeclerations = true);
 
-        this.RoundText.text = this.Player.IsMatchWinner() ? "You Win" : "You Loose";
+        this.RoundText.text = this.Player.RecMatchWinner() ? "You Win" : "You Loose";
         yield return new WaitForSeconds(2);
 
         ChangeScene.LoadTheLevel("MainMenu");
