@@ -9,6 +9,9 @@ TagManager:
   - BlueHand
   - BlueLeg
   - OpponentHealth
+  - Fist
+  - Foot
+  - Leg
   layers:
   - Default
   - TransparentFX

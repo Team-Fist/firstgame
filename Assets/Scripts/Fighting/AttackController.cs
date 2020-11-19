@@ -6,6 +6,7 @@ public class AttackController : MonoBehaviour
 {
     public Animator animator;
     public MoveController moveController;
+    public HitCheck hitCheck;
     public Facing facing;
     public bool canAttack = true;
     public bool isPunching = false;
