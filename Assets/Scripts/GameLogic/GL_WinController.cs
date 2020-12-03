@@ -101,7 +101,7 @@ public class GL_WinController : MonoBehaviour
     {
         this.RoundText.gameObject.SetActive(true);
 
-        this.RoundText.text = this.Player.IsMatchWinner() ? "You Win" : "You Loose";
+        this.RoundText.text = this.Player.IsMatchWinner() ? "You Win" : "You Lose";
         yield return new WaitForSeconds(2);
 
         ChangeScene.LoadTheLevel("MainMenu");
