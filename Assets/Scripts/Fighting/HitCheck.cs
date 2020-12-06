@@ -19,6 +19,12 @@ public class HitCheck : MonoBehaviour
     public HealthBar healthBar;
     public bool down = false;
     public int damage = 5;
+    public AudioClip hitSound;
+    public AudioClip blockSound;
+    public AudioClip fallSound;
+    public AudioSource soundSourceFall;
+    public AudioSource soundSourceHit;
+    public AudioSource soundSourceBlock;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +65,7 @@ public class HitCheck : MonoBehaviour
                 animator.ResetTrigger("Reaction1");
                 down = true;
                 animator.SetTrigger("Knockout");
+                soundSourceFall.PlayOneShot(fallSound);
                 break;
             case 2:
                 if (RoundInternals.GetUp_to_Regular())
@@ -78,12 +85,15 @@ public class HitCheck : MonoBehaviour
             {
                 if (attackControllerOther.isPunching)
                 {
-
-                    isHit = true;
                     if (!attackController.isBlocking)
                     {
+                        soundSourceHit.PlayOneShot(hitSound);
                         animator.SetTrigger("Reaction1");
                         healthBar.TakeDamage(damage);
+                    }
+                    else if (attackController.isBlocking)
+                    {
+                        soundSourceBlock.PlayOneShot(blockSound);
                     }
                 }
             }
@@ -91,11 +101,15 @@ public class HitCheck : MonoBehaviour
             {
                 if (attackControllerOther.isKicking)
                 {
-                    isHit = true;
                     if (!attackController.isBlocking)
                     {
+                        soundSourceHit.PlayOneShot(hitSound);
                         animator.SetTrigger("Reaction1");
                         healthBar.TakeDamage(damage);
+                    }
+                    else if (attackController.isBlocking)
+                    {
+                        soundSourceBlock.PlayOneShot(blockSound);
                     }
                 }
             } 
