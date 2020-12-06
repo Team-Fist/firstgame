@@ -105,5 +105,8 @@ public class GL_WinController : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         ChangeScene.LoadTheLevel("MainMenu");
+
+        if (this.Player.IsMatchWinner())
+            Score.hScore.AddScore();
     }
 }
