@@ -12,19 +12,23 @@ Engine : Unity 3D
 
 Description : 3D third-person fighting game prototype.
 
-Instructions: 
+Instructions : 
+
 	-Run "goldenfist.exe" to open the game.
 	-Click on the "Start" button to start playing.
 	
 Controls :
+
 	WASD - Move
 	Left Click - Punch
 	Right Click - Kick
 	Shift - Defend
 
 Credits :
+
 	Fighting Motions Vol.1 by Magicpot Inc.
 	Music tracks by Croteam
+	Unity Engine by Unity Technologies
 
 ===========================================================================
 
@@ -36,7 +40,8 @@ Unity Version : 2020.1.3f1 Personal
 
 Libraries : Default
 
-Building Instructions:
+Building Instructions :
+
 	-Open project in Unity editor
 	-Goto 'File->Build Settings'
 	-Click 'Build'
@@ -44,7 +49,8 @@ Building Instructions:
 
 ===========================================================================
 
-Known Issues:
+Known Issues :
+
 	Arena boundaries do not function
 	Hit reaction animation sometimes plays when it should not
 	The knockdown animation is sometimes delayed
@@ -52,5 +58,4 @@ Known Issues:
 	Certain attack animations register twice
 	Characters can continue to attack and hurt each other despite knockdown
 	
-
 ===========================================================================
