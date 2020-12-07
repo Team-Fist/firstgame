@@ -12,7 +12,7 @@ public class AI : MonoBehaviour
     public float _speed = 0.8f;
     public Animator animator;
     public AttackController attackController;
-
+    public HitCheck hitCheck;
     public Transform _target;
     private AIState _currentState;
 
@@ -51,7 +51,7 @@ public class AI : MonoBehaviour
                 }
             case AIState.Kick:
                 {
-                    if (rnd == 0)
+                    if (rnd == 0 && attackController.canAttack)
                     {
                         attackController.midKick();
                         animator.SetBool("MoveForward", false);
@@ -78,14 +78,14 @@ public class AI : MonoBehaviour
                     }
 
 
-                    if (Vector3.Distance(transform.position, _target.transform.position) < _punchDistance)
+                    if (Vector3.Distance(transform.position, _target.transform.position) < _punchDistance && attackController.canAttack)
                     {
                         _currentState = AIState.Punch;
                         rnd = Random.Range(0, 2);
                     }
 
                     if (Vector3.Distance(transform.position, _target.transform.position) > _kickDistance &&
-                        Vector3.Distance(transform.position, _target.transform.position) < _chaseRange)
+                        Vector3.Distance(transform.position, _target.transform.position) < _chaseRange && attackController.canAttack)
                     {
                         _currentState = AIState.Chase;
                     }
@@ -94,7 +94,7 @@ public class AI : MonoBehaviour
                 }
             case AIState.Punch:
                 {
-                    if (rnd == 0)
+                    if (rnd == 0 && attackController.canAttack)
                     {
                         attackController.hookPunch();
                         animator.SetBool("MoveForward", false);
@@ -119,13 +119,13 @@ public class AI : MonoBehaviour
 
                     if (Vector3.Distance(transform.position, _target.transform.position) > _punchDistance
                          && Vector3.Distance(transform.position, _target.transform.position) < _kickDistance
-                        )
+                        && attackController.canAttack)
                     {
                         _currentState = AIState.Punch;
                     }
 
                     if (Vector3.Distance(transform.position, _target.transform.position) > _kickDistance &&
-                        Vector3.Distance(transform.position, _target.transform.position) < _chaseRange)
+                        Vector3.Distance(transform.position, _target.transform.position) < _chaseRange && attackController.canAttack)
                     {
                         _currentState = AIState.Chase;
                         rnd = Random.Range(0, 2);
