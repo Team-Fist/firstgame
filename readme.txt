@@ -30,6 +30,8 @@ Credits :
 
 Source : https://github.com/Team-Fist/firstgame
 
+Branch : master
+
 Unity Version : 2020.1.3f1 Personal
 
 Libraries : Default
@@ -42,6 +44,13 @@ Building Instructions:
 
 ===========================================================================
 
-
+Known Issues:
+	Arena boundaries do not function
+	Hit reaction animation sometimes plays when it should not
+	The knockdown animation is sometimes delayed
+	Characters will get back up despite losing the match
+	Certain attack animations register twice
+	Characters can continue to attack and hurt each other despite knockdown
+	
 
 ===========================================================================
